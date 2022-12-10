@@ -1,0 +1,11 @@
+{
+  "name": "example-huggingface-transformer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Hironao OTSUBO <motemen@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^3.25.1"
+  }
+}

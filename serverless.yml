@@ -1,0 +1,30 @@
+service: example-huggingface-transformer
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: ap-northeast-1
+  runtime: python3.8
+  ecr:
+    images:
+      rinna-ja-gpt2-small:
+        path: .
+        platform: linux/amd64
+  logs:
+    restApi:
+      accessLogging: true
+      executionLogging: true
+      fullExecutionData: true
+functions:
+  generate-small:
+    image:
+      name: rinna-ja-gpt2-small
+    timeout: 30
+    environment:
+      TRANSFORMERS_OFFLINE: 1
+    memorySize: 2048
+    events:
+      - http:
+          path: /generate-small
+          method: post
+
